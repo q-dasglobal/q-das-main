@@ -3,19 +3,27 @@
 import { HiArrowDown } from "react-icons/hi2";
 import Image from "next/image";
 import { useCallback } from "react";
+import { cn } from "@/lib/utils";
 
-export default function ScrollToBottom() {
-  const scrollToBottom = useCallback(() => {
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: "smooth",
-    });
+type ScrollToBottomProps = {
+  className?: string;
+};
+
+export default function ScrollToBottom({ className }: ScrollToBottomProps) {
+  const scrollToDivisions = useCallback(() => {
+    const divisionsSection = document.getElementById("divisions");
+    if (divisionsSection) {
+      divisionsSection.scrollIntoView({ behavior: "smooth" });
+    }
   }, []);
 
   return (
     <button
-      onClick={scrollToBottom}
-      className="group relative h-40 w-40 shrink-0 transition-transform md:h-44 md:w-44"
+      onClick={scrollToDivisions}
+      className={cn(
+        "group relative shrink-0 cursor-pointer transition-transform duration-300 hover:scale-105",
+        className,
+      )}
       aria-label="Scroll to bottom"
       type="button"
     >
@@ -32,7 +40,7 @@ export default function ScrollToBottom() {
           className="absolute inset-0 rounded-full"
           style={{
             background:
-              "linear-gradient(135deg, rgba(119, 196, 28, 0.5) 0%, rgba(207, 79, 145, 0.5) 29%, rgba(0, 106, 206, 0.5) 46%, rgba(246, 171, 42, 0.5) 69%)",
+              "linear-gradient(to right, rgba(119, 196, 28, 0.3) 0%, rgba(207, 79, 145, 0.3) 29%, rgba(0, 106, 206, 0.3) 46%, rgba(246, 171, 42, 0.3) 69%)",
             mixBlendMode: "color",
           }}
         />
@@ -57,7 +65,7 @@ export default function ScrollToBottom() {
       </svg>
 
       <div className="absolute inset-0 flex items-center justify-center">
-        <HiArrowDown className="h-10 w-10 text-gray-900" />
+        <HiArrowDown className="h-14 w-14 text-gray-900" />
       </div>
     </button>
   );

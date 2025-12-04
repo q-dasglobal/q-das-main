@@ -1,62 +1,93 @@
 import Image from "next/image";
-
-const features = [
-  {
-    title: "Technology",
-    description: "Digital transformation, cybersecurity, enterprise solutions.",
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2000&auto=format&fit=crop", // Server room
-    gradient: "from-blue-600/80 to-blue-900/80",
-  },
-  {
-    title: "Energy",
-    description: "Downstream operations, renewables, industrial power systems.",
-    image:
-      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2000&auto=format&fit=crop", // Wind energy
-    gradient: "from-yellow-500/80 to-orange-600/80",
-  },
-  {
-    title: "Infrastructure",
-    description: "Construction, engineering, and real estate development.",
-    image:
-      "https://images.unsplash.com/photo-1545558014-8692077e9b5c?q=80&w=2000&auto=format&fit=crop", // Bridge
-    gradient: "from-green-600/80 to-emerald-900/80",
-  },
-];
+import Link from "next/link";
+import { features } from "@/lib/data";
 
 export default function FeatureCards() {
   return (
-    <div className="grid h-auto w-full grid-cols-1 md:h-[600px] md:grid-cols-3">
-      {features.map((feature, index) => (
-        <div
-          key={index}
-          className="group relative h-[400px] w-full overflow-hidden md:h-full"
-        >
-          {/* Background Image */}
-          <Image
-            src={feature.image}
-            alt={feature.title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
-          />
+    <section id="divisions" className="w-full scroll-mt-32">
+      <div className="grid h-auto w-full grid-cols-1 md:h-[600px] md:grid-cols-3">
+        {features.map((feature, index) => {
+          const CardContent = (
+            <>
+              {/* Background Image */}
+              <Image
+                src={feature.image}
+                alt={feature.title}
+                fill
+                className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
+              />
 
-          {/* Overlay */}
-          <div
-            className={`absolute inset-0 bg-gradient-to-t ${feature.gradient} opacity-60 transition-opacity duration-500 group-hover:opacity-80`}
-          />
-          <div className="absolute inset-0 bg-black/20" />
+              {/* Overlay - Gradient only covers bottom portion */}
+              <div
+                className={`absolute right-0 bottom-0 left-0 h-2/3 bg-linear-to-t ${feature.gradient} transition-opacity duration-500 group-hover:opacity-100`}
+              />
+              <div className="absolute inset-0 bg-black/5 transition-opacity duration-500 group-hover:bg-black/0" />
 
-          {/* Content */}
-          <div className="absolute bottom-0 left-0 w-full p-8 text-white">
-            <h2 className="mb-2 text-3xl font-bold md:text-4xl">
-              {feature.title}
-            </h2>
-            <p className="max-w-xs text-sm leading-relaxed font-medium opacity-90 md:text-base">
-              {feature.description}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
+              {/* Visit Indicator - appears on hover */}
+              <div className="absolute top-6 right-6 flex translate-x-4 items-center gap-2 text-white opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100">
+                <span className="text-sm font-medium">Visit</span>
+                <svg
+                  className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+                {feature.external && (
+                  <svg
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                )}
+              </div>
+
+              {/* Content */}
+              <div className="absolute bottom-0 left-0 w-full p-8 text-white">
+                <h2 className="mb-2 translate-y-0 transform text-3xl font-bold transition-transform duration-500 group-hover:-translate-y-2 md:text-4xl">
+                  {feature.title}
+                </h2>
+                <p className="max-w-xs translate-y-4 transform text-sm leading-relaxed font-medium opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 md:text-base">
+                  {feature.description}
+                </p>
+              </div>
+            </>
+          );
+
+          return (
+            <Link
+              key={index}
+              href={feature.href}
+              target={feature.external ? "_blank" : undefined}
+              rel={feature.external ? "noopener noreferrer" : undefined}
+              className="group animate-fade-in-up relative h-[400px] w-full cursor-pointer overflow-hidden opacity-0 ring-2 ring-transparent transition-all duration-300 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent focus:outline-none md:h-full"
+              style={{
+                animationDelay: `${600 + index * 200}ms`,
+                animationFillMode: "forwards",
+              }}
+              aria-label={`Visit ${feature.title} - ${feature.description}`}
+            >
+              {CardContent}
+            </Link>
+          );
+        })}
+      </div>
+    </section>
   );
 }
