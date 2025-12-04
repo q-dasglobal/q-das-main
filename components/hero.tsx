@@ -3,7 +3,7 @@ import ScrollToBottom from "@/components/scroll-to-bottom";
 
 export default function Hero() {
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative min-h-screen w-full overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -26,17 +26,23 @@ export default function Hero() {
         <div className="flex flex-col pt-32">
           {/* Main Text */}
           <main className="max-w-6xl">
-            <p className="animate-fade-in fill-mode-[forwards] mb-6 text-sm font-medium tracking-widest text-white/90 opacity-0 [animation-delay:200ms]">
+            <p
+              className="animate-fade-in mb-6 text-sm font-medium tracking-widest text-white/90 opacity-0 [animation-delay:200ms]"
+              style={{ animationFillMode: "forwards" }}
+            >
               /QDAS Global Group
             </p>
-            <h1 className="animate-fade-in-up fill-mode-[forwards] font-sans text-4xl leading-[1.1] font-semibold text-white opacity-0 [animation-delay:400ms] md:text-7xl lg:text-8xl">
+            <h1
+              className="animate-fade-in-up font-sans text-4xl leading-[1.1] font-semibold text-white opacity-0 [animation-delay:400ms] md:text-7xl lg:text-8xl"
+              style={{ animationFillMode: "forwards" }}
+            >
               Building Africa's Digital, Energy & Infrastructure Future.
             </h1>
           </main>
 
           {/* Scroll Indicator */}
           <div className="mt-12 flex justify-end">
-            <ScrollToBottom className="h-35 w-35 md:h-44 md:w-44" />
+            <ScrollToBottom className="h-[140px] w-[140px] md:h-44 md:w-44" />
           </div>
         </div>
       </div>
