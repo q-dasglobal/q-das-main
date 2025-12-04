@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { features } from "@/lib/data";
+import { COMPANY } from "@/lib/constants";
 
 export default function NotFound() {
   return (
@@ -95,7 +96,7 @@ export default function NotFound() {
             Return Home
           </Link>
           <a
-            href="mailto:info@qdasglobal.com"
+            href={`mailto:${COMPANY.email}`}
             className="animate-fade-in fill-mode-[forwards] inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-3 font-sans text-base font-semibold text-gray-900 opacity-0 transition-all duration-300 [animation-delay:1600ms] hover:bg-white/90"
           >
             Contact Us

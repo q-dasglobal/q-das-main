@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { features } from "@/lib/data";
+import { COMPANY } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -59,7 +60,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:info@qdasglobal.com"
+                  href={`mailto:${COMPANY.email}`}
                   className="text-sm text-white/70 transition-colors hover:text-white"
                 >
                   Contact Us
@@ -67,10 +68,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:info@qdasglobal.com"
+                  href={`mailto:${COMPANY.email}`}
                   className="text-sm text-white/70 transition-colors hover:text-white"
                 >
-                  info@qdasglobal.com
+                  {COMPANY.email}
                 </a>
               </li>
             </ul>

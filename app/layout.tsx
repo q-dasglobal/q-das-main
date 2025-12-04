@@ -18,7 +18,15 @@ const montserratBody = Montserrat({
 export const metadata: Metadata = {
   title: "QDAS Global Group",
   description:
-    "QDAS Global Group is a leading provider of digital, energy, and infrastructure solutions in Africa.",
+    "Building Africa's Digital, Energy & Infrastructure Future. QDAS Global Group delivers innovative solutions in technology, renewable energy, and construction across Africa.",
+  openGraph: {
+    title: "QDAS Global Group",
+    description:
+      "Building Africa's Digital, Energy & Infrastructure Future through innovative solutions in technology, renewable energy, and construction.",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({

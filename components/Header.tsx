@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { COMPANY } from "@/lib/constants";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,7 +47,7 @@ export default function Header() {
         <div className="flex items-center gap-8">
           {/* Mobile: Show Contact Link directly */}
           <a
-            href="mailto:info@qdasglobal.com"
+            href={`mailto:${COMPANY.email}`}
             className={cn(
               "flex items-center gap-2 text-sm font-medium tracking-wider uppercase transition-opacity hover:opacity-80 md:hidden",
               !isScrolled ? "text-white" : "text-gray-900",
@@ -58,7 +59,7 @@ export default function Header() {
 
           {/* Tablet/Desktop: Show Contact Link + Menu Button */}
           <a
-            href="mailto:info@qdasglobal.com"
+            href={`mailto:${COMPANY.email}`}
             className={cn(
               "hidden items-center gap-2 text-sm font-medium tracking-wider uppercase transition-opacity hover:opacity-80 md:flex",
               !isScrolled ? "text-white" : "text-gray-900",

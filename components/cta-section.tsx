@@ -10,6 +10,7 @@ import {
   FiAward,
 } from "react-icons/fi";
 import { FaGlobeAfrica } from "react-icons/fa";
+import { COMPANY } from "@/lib/constants";
 
 export default function CTASection() {
   return (
@@ -101,7 +102,7 @@ export default function CTASection() {
             <FiArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
           <a
-            href="mailto:info@qdasglobal.com"
+            href={`mailto:${COMPANY.email}`}
             className="group inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3.5 font-sans text-sm font-bold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/10 sm:w-auto sm:min-w-[200px] sm:px-8 sm:py-4 sm:text-base"
           >
             <FiMessageSquare className="h-4 w-4 text-slate-300 group-hover:text-white sm:h-5 sm:w-5" />
