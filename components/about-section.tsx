@@ -5,8 +5,12 @@ import { motion } from "motion/react";
 
 export default function AboutSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#0B0F19] py-16 sm:py-24 md:py-32">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6">
+    <section className="relative w-full overflow-hidden bg-linear-to-b from-[#0B0F19] via-[#0C1119] to-[#0B0F19] py-16 sm:py-24 md:py-32">
+      {/* Subtle top border divider */}
+      <div className="absolute top-0 left-0 h-px w-full bg-linear-to-r from-transparent via-white/5 to-transparent" />
+      {/* Subtle gradient overlay for depth */}
+      <div className="absolute inset-0 bg-linear-to-br from-blue-500/3 via-transparent to-emerald-500/3" />
+      <div className="max-w-8xl relative z-10 mx-auto px-4 sm:px-6">
         <div className="grid items-center gap-12 sm:gap-16 lg:grid-cols-2 lg:gap-24">
           {/* Left Column: Typography & Narrative */}
           <motion.div
@@ -107,6 +111,8 @@ export default function AboutSection() {
           </motion.div>
         </div>
       </div>
+      {/* Subtle bottom border divider */}
+      <div className="absolute bottom-0 left-0 h-px w-full bg-linear-to-r from-transparent via-white/5 to-transparent" />
     </section>
   );
 }

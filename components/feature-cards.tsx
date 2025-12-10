@@ -4,7 +4,12 @@ import { features } from "@/lib/data";
 
 export default function FeatureCards() {
   return (
-    <section id="divisions" className="w-full scroll-mt-32">
+    <section
+      id="divisions"
+      className="relative w-full scroll-mt-32 bg-[#0A0E18]"
+    >
+      {/* Subtle top border divider */}
+      <div className="absolute top-0 left-0 h-px w-full bg-linear-to-r from-transparent via-white/5 to-transparent" />
       <div className="grid h-auto w-full grid-cols-1 md:h-[600px] md:grid-cols-3">
         {features.map((feature, index) => {
           const CardContent = (
@@ -88,6 +93,8 @@ export default function FeatureCards() {
           );
         })}
       </div>
+      {/* Subtle bottom border divider */}
+      <div className="absolute bottom-0 left-0 h-px w-full bg-linear-to-r from-transparent via-white/5 to-transparent" />
     </section>
   );
 }

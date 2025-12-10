@@ -15,6 +15,8 @@ import { COMPANY } from "@/lib/constants";
 export default function CTASection() {
   return (
     <section className="relative w-full overflow-hidden py-24 md:py-32">
+      {/* Subtle top border divider */}
+      <div className="absolute top-0 left-0 z-20 h-px w-full bg-linear-to-r from-transparent via-white/10 to-transparent" />
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -23,7 +25,6 @@ export default function CTASection() {
           fill
           className="object-cover"
         />
-        {/* Gradient Overlay */}
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-[#0B0F19]/90 mix-blend-multiply" />
         {/* Tricolor Atmosphere */}

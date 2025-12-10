@@ -50,6 +50,8 @@ export default function StatsSection() {
 
   return (
     <section className="relative w-full border-y border-white/5 bg-[#0B0F19] py-16">
+      {/* Enhanced top border with gradient */}
+      <div className="absolute top-0 left-0 h-px w-full bg-linear-to-r from-transparent via-blue-500/30 to-transparent" />
       {/* Technical Grid Background */}
       <div
         className="absolute inset-0 z-0 opacity-20"
@@ -176,6 +178,8 @@ export default function StatsSection() {
           ))}
         </div>
       </div>
+      {/* Enhanced bottom border with gradient */}
+      <div className="absolute bottom-0 left-0 h-px w-full bg-linear-to-r from-transparent via-emerald-500/30 to-transparent" />
     </section>
   );
 }
