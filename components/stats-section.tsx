@@ -49,7 +49,7 @@ export default function StatsSection() {
   ];
 
   return (
-    <section className="relative w-full border-y border-white/5 bg-[#0B0F19] py-16">
+    <section className="relative w-full overflow-hidden border-y border-white/5 bg-[#0B0F19] py-16">
       {/* Enhanced top border with gradient */}
       <div className="absolute top-0 left-0 h-px w-full bg-linear-to-r from-transparent via-blue-500/30 to-transparent" />
       {/* Technical Grid Background */}
@@ -73,8 +73,8 @@ export default function StatsSection() {
       <div className="absolute inset-0 z-0 bg-linear-to-b from-[#0B0F19] via-[#0B0F19]/95 to-[#0B0F19]" />
 
       {/* Subtle Multicolor Glows */}
-      <div className="absolute top-0 left-1/4 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/5 blur-3xl" />
-      <div className="absolute top-0 right-1/4 h-96 w-96 translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/5 blur-3xl" />
+      <div className="absolute top-0 left-1/4 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/5 blur-3xl sm:h-96 sm:w-96" />
+      <div className="absolute top-0 right-1/4 h-48 w-48 translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/5 blur-3xl sm:h-96 sm:w-96" />
 
       <div className="max-w-8xl relative z-10 mx-auto px-4 sm:px-6">
         <div className="mb-16 flex flex-col items-center justify-between gap-8 border-b border-white/10 pb-8 text-center md:flex-row md:items-end md:text-left">

@@ -84,30 +84,60 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="relative h-[400px] w-full sm:h-[500px] md:h-[600px]"
+            className="relative h-[450px] w-full sm:h-[550px] md:h-[650px]"
           >
-            {/* Main Image */}
-            <div className="absolute top-0 right-0 h-[350px] w-[85%] overflow-hidden rounded-tr-4xl rounded-bl-4xl sm:h-[400px] sm:w-[90%] sm:rounded-tr-[3rem] sm:rounded-bl-[3rem] md:h-[500px] md:rounded-tr-[4rem] md:rounded-bl-[4rem]">
-              <Image
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
-                alt="Modern Architecture"
-                fill
-                className="object-cover"
-              />
+            {/* Background glow effects */}
+            <div className="absolute top-1/4 right-1/4 -z-10 h-48 w-48 rounded-full bg-blue-500/10 blur-3xl sm:h-64 sm:w-64" />
+            <div className="absolute bottom-1/4 left-1/4 -z-10 h-48 w-48 rounded-full bg-orange-500/10 blur-3xl sm:h-64 sm:w-64" />
+
+            {/* Main Image with decorative frame */}
+            <div className="absolute top-0 right-0 h-[320px] w-[85%] sm:h-[380px] sm:w-[88%] md:h-[480px]">
+              {/* Decorative corner frames */}
+              <div className="absolute -top-2 -right-2 h-[40%] w-[40%] rounded-tr-3xl border-t-4 border-r-4 border-blue-400/30 sm:-top-3 sm:-right-3 sm:rounded-tr-4xl sm:border-t-[5px] sm:border-r-[5px] md:-top-4 md:-right-4 md:rounded-tr-[3rem] md:border-t-6 md:border-r-6" />
+              <div className="absolute -bottom-2 -left-2 h-[40%] w-[40%] rounded-bl-3xl border-b-4 border-l-4 border-emerald-400/30 sm:-bottom-3 sm:-left-3 sm:rounded-bl-4xl sm:border-b-[5px] sm:border-l-[5px] md:-bottom-4 md:-left-4 md:rounded-bl-[3rem] md:border-b-6 md:border-l-6" />
+
+              {/* Image container */}
+              <div className="relative h-full w-full overflow-hidden rounded-tr-3xl rounded-bl-3xl shadow-2xl shadow-black/30 sm:rounded-tr-[3rem] sm:rounded-bl-[3rem] md:rounded-tr-[4rem] md:rounded-bl-[4rem]">
+                <Image
+                  src="/images/about-main.png"
+                  alt="Modern African Infrastructure"
+                  fill
+                  className="object-cover"
+                />
+                {/* Gradient overlay for depth */}
+                <div className="absolute inset-0 bg-linear-to-t from-[#0B0F19]/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-br from-blue-500/10 via-transparent to-emerald-500/10" />
+              </div>
             </div>
 
             {/* Secondary Image (Overlapping) */}
-            <div className="absolute bottom-0 left-0 h-[200px] w-[55%] overflow-hidden rounded-tl-4xl rounded-br-4xl border-4 border-t-0 border-r-0 border-b-4 border-l-0 border-slate-200 sm:h-[250px] sm:w-[60%] sm:rounded-tl-[2.5rem] sm:rounded-br-[2.5rem] sm:border-6 md:h-[300px] md:rounded-tl-[3rem] md:rounded-br-[3rem] md:border-8">
-              <Image
-                src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?q=80&w=2070&auto=format&fit=crop"
-                alt="Abstract Detail"
-                fill
-                className="object-cover"
-              />
+            <div className="absolute bottom-6 left-0 h-[180px] w-[55%] sm:bottom-8 sm:h-[220px] sm:w-[58%] md:bottom-10 md:h-[280px]">
+              {/* Decorative corner frame - bottom-left and top-right */}
+              <div className="absolute -bottom-2 -left-2 h-[55%] w-[55%] rounded-bl-3xl border-b-4 border-l-4 border-orange-400/50 sm:-bottom-3 sm:-left-3 sm:rounded-bl-4xl sm:border-b-[6px] sm:border-l-[6px] md:-bottom-4 md:-left-4 md:rounded-bl-[2.5rem] md:border-b-8 md:border-l-8" />
+              <div className="absolute -top-2 -right-2 h-[55%] w-[55%] rounded-tr-3xl border-t-4 border-r-4 border-blue-400/50 sm:-top-3 sm:-right-3 sm:rounded-tr-4xl sm:border-t-[6px] sm:border-r-[6px] md:-top-4 md:-right-4 md:rounded-tr-[2.5rem] md:border-t-8 md:border-r-8" />
+
+              {/* Image container */}
+              <div className="relative h-full w-full overflow-hidden rounded-tl-3xl rounded-br-3xl shadow-xl shadow-black/20 sm:rounded-tl-[2.5rem] sm:rounded-br-[2.5rem] md:rounded-tl-[3rem] md:rounded-br-[3rem]">
+                <Image
+                  src="/images/about-detail.png"
+                  alt="Engineering Detail"
+                  fill
+                  className="object-cover"
+                />
+                {/* Subtle overlay */}
+                <div className="absolute inset-0 bg-linear-to-br from-orange-500/5 via-transparent to-blue-500/5" />
+              </div>
             </div>
 
-            {/* Decorative Graphic */}
-            <div className="absolute top-1/2 left-1/4 -z-10 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-200 bg-white sm:h-48 sm:w-48 md:h-64 md:w-64" />
+            {/* Decorative dots pattern */}
+            <div className="absolute top-[15%] left-[8%] hidden grid-cols-3 gap-2 opacity-40 md:grid">
+              {[...Array(9)].map((_, i) => (
+                <div
+                  key={i}
+                  className="h-1.5 w-1.5 rounded-full bg-blue-400/60"
+                />
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
